@@ -31,6 +31,10 @@ NOTE: Users must have the pygame libraries installed (http://www.pygame.org/down
 . best_playthrough.txt: File that saves the best playthrough.
 
 
+** .avi file **
+. DBS Gameplay Video: A 2-minute long video showcasing some gameplay.
+
+
 ** other **
 . Donald Bren Solid Design Document: The design document for this game.
 . Various .png, .ogg, and .wav files that serve as the assets for this game.
