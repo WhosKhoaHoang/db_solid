@@ -20,6 +20,7 @@ RB_SPEED = 60
 
 class FrostSpark(pygame.sprite.Sprite):
     '''This class represents a Frost spark.'''
+    
     def __init__(self, orientation = None, width = 10, height = 10):
         # Call the parent class (Sprite) constructor
         pygame.sprite.Sprite.__init__(self)

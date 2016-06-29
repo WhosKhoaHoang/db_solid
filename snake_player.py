@@ -18,6 +18,8 @@ INSTANT_NOODLES_STOCK = 2
 '''
 
 class Snake(pygame.sprite.Sprite):
+    '''A class that represents Snake.'''
+  
     def __init__(self: "Snake", width=64, height=64): #won't need width and height...
         '''Initializes the attributes of a Snake Sprite.'''
         pygame.sprite.Sprite.__init__(self)

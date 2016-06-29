@@ -444,6 +444,7 @@ class Kay(pygame.sprite.Sprite):
 
 
     def _keep_dist_for_north_or_south_snake(self, direction, snake, dist_from_snake): #STILL NEEDED TO PASS dist_from_snake to here
+        '''Causes Kay to keep distance from Snake when Snake is in the north or south.'''
         #print("KEEP DIST NORTH OR SOUTH")
         if snake.rect.centerx < self.rect.centerx and dist_from_snake > self.hover_dist: #Snake is left
             self._go_chase_west()
@@ -457,6 +458,7 @@ class Kay(pygame.sprite.Sprite):
 
 
     def _keep_dist_for_east_or_west_snake(self, direction, snake, dist_from_snake): #STILL NEEDED TO PASS dist_from_snake to here
+        '''Causes Kay to keep distance from Snake when Snake is in the east or west.'''
         #print("KEEP DIST EAST OR WEST")
         if snake.rect.centery < self.rect.centery and dist_from_snake > self.hover_dist: #Snake is top
             self._go_chase_north()
@@ -470,6 +472,7 @@ class Kay(pygame.sprite.Sprite):
 
                             
     def _go_chase_north(self):
+        '''Causes Kay to chase after Snake when he is in the north.'''
         self._set_orientation("north")
         self.h_chase_move = 0 #To ensure no diagonal movements
         self.v_chase_move = -self.chase_speed
@@ -477,6 +480,7 @@ class Kay(pygame.sprite.Sprite):
         #self.rect.y -= self.chase_speed #move up
     
     def _go_chase_east(self):
+        '''Causes Kay to chase after Snake when he is in the east.'''
         self._set_orientation("east")
         self.v_chase_move = 0
         self.h_chase_move = self.chase_speed
@@ -484,6 +488,7 @@ class Kay(pygame.sprite.Sprite):
         #self.rect.x += self.chase_speed #move right
 
     def _go_chase_south(self):
+        '''Causes Kay to chase after Snake when he is in the south.'''
         self._set_orientation("south")
         self.h_chase_move = 0
         self.v_chase_move = self.chase_speed
@@ -491,6 +496,7 @@ class Kay(pygame.sprite.Sprite):
         #self.rect.y += self.chase_speed #move down
 
     def _go_chase_west(self):
+        '''Causes Kay to chase after Snake when he is in the west.'''
         self._set_orientation("west")
         self.v_chase_move = 0
         self.h_chase_move = -self.chase_speed

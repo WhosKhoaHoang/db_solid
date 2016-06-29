@@ -31,7 +31,7 @@ NOTE: Users must have the pygame libraries installed (http://www.pygame.org/down
 . best_playthrough.txt: File that saves the best playthrough.
 
 
-** .avi file **
+** .mp4 file **
 . DBS Gameplay Video: A 2-minute long video showcasing some gameplay.
 
 

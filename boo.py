@@ -14,6 +14,7 @@ B_SNAKE_COLLIDE_DAM = 3
 
 class Boo(pygame.sprite.Sprite):
     '''A class that represents Boo.'''
+    
     def __init__(self: "Enemy", window: "Canvas", trigger_happiness: [int] = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1],
                  keeps_dist: bool = False, chase_speed: int = 11, patrol_speed: int = 4, attack_box: (int) = (10, 10, 10, 10),
                  hover_dist: float = 0):

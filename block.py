@@ -4,7 +4,10 @@ import pygame
 from colors import *
 
 class Block(pygame.sprite.Sprite):
+    '''A class that represents a Block structure'''
+  
     def __init__(self, color = BLUE, width = 64, height = 64, filename = None):
+        '''Initiliazes the state of a Block.'''
         pygame.sprite.Sprite.__init__(self)
         self.image = pygame.Surface((width, height))
         if filename != None:
@@ -21,6 +24,7 @@ class Block(pygame.sprite.Sprite):
 
 
     def init_position(self, x, y):
+        '''Initializes the position of a Block on the game dispaly.'''
         #self.rect.x = x - self.origin_x
         #self.rect.y = y - self.origin_y
         self.rect.x = x
@@ -28,6 +32,7 @@ class Block(pygame.sprite.Sprite):
 
     
     def set_image(self, filename = None):
+        '''Sets the image to be "pasted" onto the block'''
         if filename != None:
             self.image = pygame.image.load(filename)
             self._set_attributes()

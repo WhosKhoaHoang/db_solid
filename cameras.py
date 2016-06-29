@@ -12,6 +12,8 @@ import enemies
 
 
 class Camera(pygame.sprite.Sprite):
+    '''A class that represents a surveillance camera.'''
+  
     def __init__(self: "Enemy", window: "Canvas", orientation: str, patrol_speed: int = 5):
         '''Initializes the attributes of a Snake Sprite.'''
         pygame.sprite.Sprite.__init__(self)
