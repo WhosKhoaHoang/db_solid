@@ -361,8 +361,25 @@ class Snake(pygame.sprite.Sprite):
 
     def _event_handler(self: "Snake", event: "EventType"):
         '''Processes an event.'''
-        
+
         if event != None:
+            # ===== KEY OBSERVATION =====
+            #Arrow keys generate a KEYDOWN event but text-related keys
+            #DO NOT generate a KEYDOWN event, which is why pressing
+            #the space key (which should be identified as pygame.K_SPACE)
+            #doesn't get recognized here (I.e., a KEYDOWN event does not
+            #accompany the act of pressing the space key. In fact,
+            #a TextInput event seems to accompany it now...I wonder how
+            #you even get pygame.K_SPACE to appear anymore).
+            # - This change is addressed in the PyGame docs
+            #   (https://www.pygame.org/docs/ref/key.html):
+            #     " New in pygame 2.0.0: The pygame.TEXTINPUT event is
+            #       preferred to the unicode attribute of pygame.KEYDOWN.
+            #       The attribute text contains the input. "
+            # - Also, this GitHub discussion mentions TEXTINPUT
+            #   replacing KEYDOWN:
+            #       https://github.com/pygame/pygame/issues/1236
+
             if event.type == pygame.KEYDOWN:
 ###JEREMY  #This part was to handle "the running man"
                 if event.key == pygame.K_UP:
@@ -398,7 +415,8 @@ class Snake(pygame.sprite.Sprite):
                     else:
                         self._handle_snake_movement_left()
 ###END JEREMY
-                if event.key == pygame.K_SPACE:
+            elif event.type == pygame.TEXTINPUT:
+                if event.text == " ":
                     self.threw_punch = True
                     self.is_moving = False
                     if self.current_weapon.name == "Straw" and self.current_weapon.stock > 0:
