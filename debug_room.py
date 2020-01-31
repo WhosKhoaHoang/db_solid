@@ -50,6 +50,8 @@ if __name__ == "__main__":
     #occupants.
     snake.area = DebugRoom(window_width, window_height, snake)
 
+    hud = HUD(window_width, window_height*0.12, snake)
+
     s_group = pygame.sprite.Group()
     s_group.add(snake)
 
@@ -66,6 +68,9 @@ if __name__ == "__main__":
         # ===== BACKEND updates ==== #
         #Update state of sprites
         snake.update(event)
+        hud.update(snake)
+        #Hud should be last thing that is
+        #updated to register attacks
 
         # ===== Logic tests ===== #
         #Will prevent Snake from walking off-screen:
@@ -74,8 +79,12 @@ if __name__ == "__main__":
         # ===== FRONTEND updates ==== #
         #Blit the window with background to "wipe clean"
         window.blit(background, (0,0))
+        window.blit(hud, (0, window_height*0.90))
         #Begin redrawing sprites with their updated state
         s_group.draw(window)
+        hud.draw()
+        #Even if the HUD isn't drawn, Sanke seems to hit
+        #a boundary where the HUD would be. Investigate.
 
         #Apply the BACKEND and FRONTEND updates
         pygame.display.update()
